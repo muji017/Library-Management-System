@@ -48,9 +48,9 @@ as well as reporting features.
 - POST /api/users/register: Register a new user
 - POST /api/users/login: Login a user
 ## Book Management
-- POST /api/books: Add a new book (Admin only)
-- PUT /api/books/:id: Update book details (Admin only)
-- DELETE /api/books/:id: Delete a book (Admin only)
+- POST /api/books/add: Add a new book (Admin only)
+- PUT /api/books/update/:id: Update book details (Admin only)
+- DELETE /api/books/delete/:id: Delete a book (Admin only)
 - GET /api/books/list: List all books with pagination and filtering
 ## Borrowing System
 - POST /api/borrows/borrow/:bookId: Borrow a book (Member only)
