@@ -3,6 +3,8 @@ const mongoose = require('mongoose')
 const bodyParser = require("body-parser");
 const dotenv = require('dotenv')
 const userRoutes = require('./routes/userRoutes');
+const bookRoutes = require('./routes/bookRoutes')
+
 
 dotenv.config();
 const app = express()
@@ -13,6 +15,7 @@ const port = 3000
 
 // routes
 app.use('/api/users', userRoutes);
+app.use('/api/books', bookRoutes);
 
 // connecting to database and starting server
 mongoose.connect(process.env.MONGODB)
