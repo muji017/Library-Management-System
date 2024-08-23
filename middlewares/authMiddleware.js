@@ -19,7 +19,7 @@ exports.authMember = async (req, res, next) => {
   }
 };
 
-// Middleware for Admin authentication
+//Middleware for Admin authentication 
 exports.authAdmin = async (req, res, next) => {
   try {
     const token = req.header('Authorization').replace('Bearer ', '');
