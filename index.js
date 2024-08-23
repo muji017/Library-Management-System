@@ -14,11 +14,6 @@ const port = 3000
 // routes
 app.use('/api/users', userRoutes);
 
-//global error handler
-app.use((err, req, res, next) => {
-    res.status(500).json({ status: "error", message: err.message });
-  });
-
 // connecting to database and starting server
 mongoose.connect(process.env.MONGODB)
     .then(
