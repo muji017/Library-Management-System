@@ -10,7 +10,8 @@ as well as reporting features.
 - **Database:** MongoDB
 - **API:** RESTful API
 - **Authentication:** JWT (JSON Web Tokens)
-- **Version Control:** Git (Github) 
+- **Version Control:** Git (Github)
+- **Deployment:** Render,link https://library-management-system-0lw6.onrender.com/
 
 ---
 
@@ -63,3 +64,5 @@ as well as reporting features.
 - JWT Authentication: Users must log in to receive a token.
 - Role-based Access Control: Admins can manage books, while Members can borrow/return books and view history.
 - Attach the token to the Authorization header as Bearer <token>.
+## ☁️ Deployment
+- If you've deployed the application to Render.
