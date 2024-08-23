@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const dotenv = require('dotenv')
 const userRoutes = require('./routes/userRoutes');
 const bookRoutes = require('./routes/bookRoutes')
-
+const borrowRoutes = require('./routes/borrowRoutes')
 
 dotenv.config();
 const app = express()
@@ -16,6 +16,7 @@ const port = 3000
 // routes
 app.use('/api/users', userRoutes);
 app.use('/api/books', bookRoutes);
+app.use('/api/borrows', borrowRoutes);
 
 // connecting to database and starting server
 mongoose.connect(process.env.MONGODB)

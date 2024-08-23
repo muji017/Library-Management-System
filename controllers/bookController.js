@@ -33,18 +33,53 @@ exports.addBook = async (req, res) => {
 // List all books with pagination and filtering
 exports.listBooks = async (req, res) => {
     try {
-      const { page = 1, limit = 10, genre, author } = req.query;
-  
-      const query = {};
-      if (genre) query.genre = genre;
-      if (author) query.author = author;
-  
-      const books = await Book.find(query)
-        .skip((page - 1) * limit)
-        .limit(parseInt(limit));
-  
-      res.status(200).json(books);
+        const { page = 1, limit = 10, genre, author } = req.query;
+
+        const query = {};
+        if (genre) query.genre = genre;
+        if (author) query.author = author;
+
+        const books = await Book.find(query)
+            .skip((page - 1) * limit)
+            .limit(parseInt(limit));
+
+        res.status(200).json(books);
     } catch (error) {
-      res.status(500).json({ message: 'Server error', error });
+        res.status(500).json({ message: 'Server error', error });
     }
-  };
+};
+
+// Update book details (Admin only)
+exports.updateBook = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updatedData = req.body;
+
+        const updatedBook = await Book.findByIdAndUpdate(id, updatedData, { new: true });
+
+        if (!updatedBook) {
+            return res.status(404).json({ message: 'Book not found' });
+        }
+
+        res.status(200).json({ message: 'Book updated successfully', book: updatedBook });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error });
+    }
+};
+
+// Delete a book (Admin only)
+exports.deleteBook = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const deletedBook = await Book.findByIdAndDelete(id);
+
+        if (!deletedBook) {
+            return res.status(404).json({ message: 'Book not found' });
+        }
+
+        res.status(200).json({ message: 'Book deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error });
+    }
+};
