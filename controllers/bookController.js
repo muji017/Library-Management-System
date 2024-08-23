@@ -5,8 +5,34 @@ exports.addBook = async (req, res) => {
     try {
         const { title, author, ISBN, publicationDate, genre, numberOfCopies } = req.body;
 
+        // Validation
+        if (!title || title.trim().length < 3) {
+            return res.status(400).json({ message: 'Title must be at least 3 characters long' });
+        }
+
+        if (!author || author.trim().length < 3) {
+            return res.status(400).json({ message: 'Author must be at least 3 characters long' });
+        }
+
+        // checking date is valid or not
+        if (!publicationDate || isNaN(Date.parse(publicationDate))) {
+            return res.status(400).json({ message: 'Invalid publication date' });
+        }
+
+        if (!genre || genre.trim().length < 3) {
+            return res.status(400).json({ message: 'Genre must be at least 3 characters long' });
+        }
+        // checking number of copies is number or not also minimum count
+        if (!numberOfCopies || !Number.isInteger(numberOfCopies) || numberOfCopies < 1) {
+            return res.status(400).json({ message: 'Number of copies must be a positive integer' });
+        }
         // Check if the book already exists in the database.
-        const existingBook = await Book.findOne({ title: req.body.title });
+        const existingBook = await Book.findOne({
+            $or: [
+                { title: title },
+                { ISBN: ISBN }
+            ]
+        });
         if (existingBook) {
             return res.status(400).json({ message: "Book already exists" });
         }

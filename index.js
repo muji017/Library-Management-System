@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 const userRoutes = require('./routes/userRoutes');
 const bookRoutes = require('./routes/bookRoutes')
 const borrowRoutes = require('./routes/borrowRoutes')
+const reportRoutes = require('./routes/reportRoutes')
 
 dotenv.config();
 const app = express()
@@ -17,6 +18,7 @@ const port = 3000
 app.use('/api/users', userRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/borrows', borrowRoutes);
+app.use('/api/reports', reportRoutes);
 
 // connecting to database and starting server
 mongoose.connect(process.env.MONGODB)
