@@ -21,7 +21,7 @@ app.use('/api/borrows', borrowRoutes);
 app.use('/api/reports', reportRoutes);
 
 // connecting to database and starting server
-mongoose.connect('mongodb://mujeebrahmanps01707:ruzo4mjVv0WDCyor@ac-z6r2eyk-shard-00-00.tpfodys.mongodb.net:27017,ac-z6r2eyk-shard-00-01.tpfodys.mongodb.net:27017,ac-z6r2eyk-shard-00-02.tpfodys.mongodb.net:27017/library?ssl=true&replicaSet=atlas-10jn36-shard-0&authSource=admin&retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB)
     .then(
         console.log("Database connected"),
         app.listen(port, () => {
