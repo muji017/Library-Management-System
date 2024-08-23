@@ -1,4 +1,4 @@
-# 🏛️ Library Management System
+# 🏛️Nalanda Library Management System
 
 The **Library Management System** is a backend project designed to manage a 
 library's books and users. Built using **Node.js**, **Express**, **MongoDB**, 
@@ -12,7 +12,11 @@ as well as reporting features.
 - **Authentication:** JWT (JSON Web Tokens)
 - **Version Control:** Git (Github)
 - **Deployment:** Render,link https://library-management-system-0lw6.onrender.com/
-
+  
+# 📚 Nalanda Library Management System API Documentation
+- This document provides details on how to use the RESTful API endpoints for the Nalanda Library Management System.
+- Created by using Postman
+- Url: https://documenter.getpostman.com/view/29892242/2sAXjF7uSg
 ---
 
 ## 🌟 Features
