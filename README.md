@@ -21,7 +21,7 @@ as well as reporting features.
 - **Borrowing System:** Borrow and return books, with borrowing history for users.
 - **Reporting:** Generate reports such as most borrowed books, active members, and book availability.
 - **API Support:** Both RESTful.
-- **Data Validation:** Comprehensive validation and error handling.
+- **Validation:** Data validation and error handling.
 
 ---
 
@@ -65,4 +65,4 @@ as well as reporting features.
 - Role-based Access Control: Admins can manage books, while Members can borrow/return books and view history.
 - Attach the token to the Authorization header as Bearer <token>.
 ## ☁️ Deployment
-- If you've deployed the application to Render.
+- Deployed the application in Render.
